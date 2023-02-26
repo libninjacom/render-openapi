@@ -1763,24 +1763,7 @@ paths:
             schema:
               type: array
               items:
-                type: object
-                properties:
-                  key:
-                    type: string
-                    example: aute cupidatat
-                  value:
-                    type: string
-                    example: esse
-              example:
-                - key: aute cupidatat
-                  value: esse
-                - key: officia esse nostrud Excepteur
-                  value: Lorem
-            example:
-              - key: aute cupidatat
-                value: esse
-              - key: officia esse nostrud Excepteur
-                value: Lorem
+                $ref: '#/components/schemas/EnvVar'
       responses:
         '200':
           description: OK
