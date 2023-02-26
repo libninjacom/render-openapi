@@ -1787,7 +1787,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetEnvVarsResponse'
+                type: array
+                items:
+                  $ref: '#/components/schemas/EnvVarCursor'
         '400':
           description: The request could not be understood by the server.
           content:
@@ -5601,8 +5603,6 @@ components:
         repo:
           type: string
           example: https://github.com/render-examples/flask-hello-world
-        serviceDetails:
-          $ref: '#/components/schemas/ServiceDetails'
         slug:
           type: string
           example: nulla dolore
@@ -5632,7 +5632,6 @@ components:
         - notifyOnFail
         - ownerId
         - repo
-        - serviceDetails
         - slug
         - suspended
         - suspenders
@@ -5747,6 +5746,26 @@ components:
         - createdAt
         - id
         - message
+    EnvGroup:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        ownerId:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+        envVars:
+          type: array
+          items:
+              $ref: '#/components/schemas/EnvVar'
+      required:
+          - id
+          - name
+          - serviceId
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
