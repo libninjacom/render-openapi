@@ -450,8 +450,8 @@ paths:
         - name: limit
           in: query
           schema:
-            type: string
-            example: '20'
+            type: integer
+            example: 20
           description: Max number of items that can be returned
       responses:
         '200':
@@ -3090,8 +3090,8 @@ paths:
         - name: limit
           in: query
           schema:
-            type: string
-            example: '20'
+            type: integer
+            example: 20
           description: Max number of items that can be returned
       responses:
         '200':
