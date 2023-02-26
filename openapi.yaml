@@ -3254,7 +3254,7 @@ paths:
       summary: Trigger a deploy
       description: >-
         [https://api-docs.render.com/reference/create-deploy](https://api-docs.render.com/reference/create-deploy)
-      operationId: triggerADeploy
+      operationId: triggerDeploy
       requestBody:
         content:
           application/json:
@@ -3272,47 +3272,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  commit:
-                    type: object
-                    properties:
-                      createdAt:
-                        type: string
-                        example: '1976-01-22T15:20:29.246Z'
-                      id:
-                        type: string
-                        example: incididunt in deserunt aliquip exerc
-                      message:
-                        type: string
-                        example: aliquip non dolore
-                  createdAt:
-                    type: string
-                    example: '1969-09-01T14:51:32.931Z'
-                  finishedAt:
-                    type: string
-                    example: '1959-01-25T18:23:55.820Z'
-                  id:
-                    type: string
-                    example: officia ut dolor
-                  status:
-                    type: string
-                    example: created
-                  updatedAt:
-                    type: string
-                    example: '1980-10-29T06:36:55.491Z'
-              examples:
-                Created:
-                  value:
-                    commit:
-                      createdAt: '1976-01-22T15:20:29.246Z'
-                      id: incididunt in deserunt aliquip exerc
-                      message: aliquip non dolore
-                    createdAt: '1969-09-01T14:51:32.931Z'
-                    finishedAt: '1959-01-25T18:23:55.820Z'
-                    id: officia ut dolor
-                    status: created
-                    updatedAt: '1980-10-29T06:36:55.491Z'
+                $ref: '#/components/schemas/Deploy'
         '400':
           description: The request could not be understood by the server.
           content:
