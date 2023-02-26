@@ -8,7 +8,7 @@ info:
     Name: Render API  
     Email: [support@render.com](mailto:support@render.com)
   version: 1.0.0
-  contact: {}
+  contact: { }
 servers:
   - url: https://api.render.com/v1
 paths:
@@ -461,186 +461,7 @@ paths:
               schema:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    cursor:
-                      type: string
-                      example: non aliquip culpa labore
-                    service:
-                      type: object
-                      properties:
-                        autoDeploy:
-                          type: string
-                          example: 'no'
-                        branch:
-                          type: string
-                          example: proident eu amet
-                        createdAt:
-                          type: string
-                          example: '2019-10-01T21:05:43.378Z'
-                        id:
-                          type: string
-                          example: irure occaecat aute reprehenderit
-                        name:
-                          type: string
-                          example: qui
-                        notifyOnFail:
-                          type: string
-                          example: ignore
-                        ownerId:
-                          type: string
-                          example: ut laboris
-                        repo:
-                          type: string
-                          example: https://github.com/render-examples/flask-hello-world
-                        serviceDetails:
-                          type: object
-                          properties:
-                            buildCommand:
-                              type: string
-                              example: irure
-                            parentServer:
-                              type: object
-                              properties:
-                                id:
-                                  type: string
-                                  example: nulla Duis et
-                                name:
-                                  type: string
-                                  example: incididunt eiusmod
-                            publishPath:
-                              type: string
-                              example: irure consectetur ex
-                            pullRequestPreviewsEnabled:
-                              type: string
-                              example: 'no'
-                            url:
-                              type: string
-                              example: ut irure
-                        slug:
-                          type: string
-                          example: nulla dolore
-                        suspended:
-                          type: string
-                          example: suspended
-                        suspenders:
-                          type: array
-                          items:
-                            type: string
-                            example: unknown
-                          example:
-                            - unknown
-                            - billing
-                        type:
-                          type: string
-                          example: web_service
-                        updatedAt:
-                          type: string
-                          example: '2001-04-20T02:58:48.244Z'
-                example:
-                  - cursor: non aliquip culpa labore
-                    service:
-                      autoDeploy: 'no'
-                      branch: proident eu amet
-                      createdAt: '2019-10-01T21:05:43.378Z'
-                      id: irure occaecat aute reprehenderit
-                      name: qui
-                      notifyOnFail: ignore
-                      ownerId: ut laboris
-                      repo: https://github.com/render-examples/flask-hello-world
-                      serviceDetails:
-                        buildCommand: irure
-                        parentServer:
-                          id: nulla Duis et
-                          name: incididunt eiusmod
-                        publishPath: irure consectetur ex
-                        pullRequestPreviewsEnabled: 'no'
-                        url: ut irure
-                      slug: nulla dolore
-                      suspended: suspended
-                      suspenders:
-                        - unknown
-                        - billing
-                      type: web_service
-                      updatedAt: '2001-04-20T02:58:48.244Z'
-                  - cursor: ut pariatur
-                    service:
-                      autoDeploy: 'no'
-                      branch: Lorem commodo in
-                      createdAt: '2012-11-16T11:56:07.514Z'
-                      id: Duis ex enim
-                      name: laborum deserunt ullamco nostrud
-                      notifyOnFail: default
-                      ownerId: aliqua
-                      repo: https://github.com/render-examples/flask-hello-world
-                      serviceDetails:
-                        buildCommand: nisi sed sint aliqua exercitation
-                        parentServer:
-                          id: veniam voluptate incididunt
-                          name: anim non consectetur occaecat
-                        publishPath: cupidatat irure pariatur commodo dolor
-                        pullRequestPreviewsEnabled: 'yes'
-                        url: velit lab
-                      slug: incididu
-                      suspended: suspended
-                      suspenders:
-                        - parent_service
-                        - user
-                      type: private_service
-                      updatedAt: '1976-10-06T18:26:05.215Z'
-              examples:
-                OK:
-                  value:
-                    - cursor: non aliquip culpa labore
-                      service:
-                        autoDeploy: 'no'
-                        branch: proident eu amet
-                        createdAt: '2019-10-01T21:05:43.378Z'
-                        id: irure occaecat aute reprehenderit
-                        name: qui
-                        notifyOnFail: ignore
-                        ownerId: ut laboris
-                        repo: https://github.com/render-examples/flask-hello-world
-                        serviceDetails:
-                          buildCommand: irure
-                          parentServer:
-                            id: nulla Duis et
-                            name: incididunt eiusmod
-                          publishPath: irure consectetur ex
-                          pullRequestPreviewsEnabled: 'no'
-                          url: ut irure
-                        slug: nulla dolore
-                        suspended: suspended
-                        suspenders:
-                          - unknown
-                          - billing
-                        type: web_service
-                        updatedAt: '2001-04-20T02:58:48.244Z'
-                    - cursor: ut pariatur
-                      service:
-                        autoDeploy: 'no'
-                        branch: Lorem commodo in
-                        createdAt: '2012-11-16T11:56:07.514Z'
-                        id: Duis ex enim
-                        name: laborum deserunt ullamco nostrud
-                        notifyOnFail: default
-                        ownerId: aliqua
-                        repo: https://github.com/render-examples/flask-hello-world
-                        serviceDetails:
-                          buildCommand: nisi sed sint aliqua exercitation
-                          parentServer:
-                            id: veniam voluptate incididunt
-                            name: anim non consectetur occaecat
-                          publishPath: cupidatat irure pariatur commodo dolor
-                          pullRequestPreviewsEnabled: 'yes'
-                          url: velit lab
-                        slug: incididu
-                        suspended: suspended
-                        suspenders:
-                          - parent_service
-                          - user
-                        type: private_service
-                        updatedAt: '1976-10-06T18:26:05.215Z'
+                  $ref: '#/components/schemas/ServiceCursor'
         '401':
           description: Authorization information is missing or invalid.
           content:
@@ -1155,102 +976,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  autoDeploy:
-                    type: string
-                    example: 'yes'
-                  branch:
-                    type: string
-                    example: nostrud Duis laboris nisi
-                  createdAt:
-                    type: string
-                    example: '1942-04-20T08:53:35.077Z'
-                  id:
-                    type: string
-                    example: in deserunt laboris dolore
-                  name:
-                    type: string
-                    example: amet ex Excepteur
-                  notifyOnFail:
-                    type: string
-                    example: notify
-                  ownerId:
-                    type: string
-                    example: est dolore eiusmod do
-                  repo:
-                    type: string
-                    example: https://github.com/render-examples/flask-hello-world
-                  serviceDetails:
-                    type: object
-                    properties:
-                      buildCommand:
-                        type: string
-                        example: aliquip in ea aliqua elit
-                      parentServer:
-                        type: object
-                        properties:
-                          id:
-                            type: string
-                            example: aute consectetur ad consequat
-                          name:
-                            type: string
-                            example: ut sed sint ipsum Duis
-                      publishPath:
-                        type: string
-                        example: 'incididunt in pariatur '
-                      pullRequestPreviewsEnabled:
-                        type: string
-                        example: 'yes'
-                      url:
-                        type: string
-                        example: aliquip laboris
-                  slug:
-                    type: string
-                    example: ut proident ea sit
-                  suspended:
-                    type: string
-                    example: not_suspended
-                  suspenders:
-                    type: array
-                    items:
-                      type: string
-                      example: parent_service
-                    example:
-                      - parent_service
-                      - unknown
-                  type:
-                    type: string
-                    example: static_site
-                  updatedAt:
-                    type: string
-                    example: '1983-02-10T05:26:21.960Z'
-              examples:
-                OK:
-                  value:
-                    autoDeploy: 'yes'
-                    branch: nostrud Duis laboris nisi
-                    createdAt: '1942-04-20T08:53:35.077Z'
-                    id: in deserunt laboris dolore
-                    name: amet ex Excepteur
-                    notifyOnFail: notify
-                    ownerId: est dolore eiusmod do
-                    repo: https://github.com/render-examples/flask-hello-world
-                    serviceDetails:
-                      buildCommand: aliquip in ea aliqua elit
-                      parentServer:
-                        id: aute consectetur ad consequat
-                        name: ut sed sint ipsum Duis
-                      publishPath: 'incididunt in pariatur '
-                      pullRequestPreviewsEnabled: 'yes'
-                      url: aliquip laboris
-                    slug: ut proident ea sit
-                    suspended: not_suspended
-                    suspenders:
-                      - parent_service
-                      - unknown
-                    type: static_site
-                    updatedAt: '1983-02-10T05:26:21.960Z'
+                $ref: '#/components/schemas/Service'
         '401':
           description: Authorization information is missing or invalid.
           content:
@@ -1606,102 +1332,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  autoDeploy:
-                    type: string
-                    example: 'yes'
-                  branch:
-                    type: string
-                    example: nostrud Duis laboris nisi
-                  createdAt:
-                    type: string
-                    example: '1942-04-20T08:53:35.077Z'
-                  id:
-                    type: string
-                    example: in deserunt laboris dolore
-                  name:
-                    type: string
-                    example: amet ex Excepteur
-                  notifyOnFail:
-                    type: string
-                    example: notify
-                  ownerId:
-                    type: string
-                    example: est dolore eiusmod do
-                  repo:
-                    type: string
-                    example: https://github.com/render-examples/flask-hello-world
-                  serviceDetails:
-                    type: object
-                    properties:
-                      buildCommand:
-                        type: string
-                        example: aliquip in ea aliqua elit
-                      parentServer:
-                        type: object
-                        properties:
-                          id:
-                            type: string
-                            example: aute consectetur ad consequat
-                          name:
-                            type: string
-                            example: ut sed sint ipsum Duis
-                      publishPath:
-                        type: string
-                        example: 'incididunt in pariatur '
-                      pullRequestPreviewsEnabled:
-                        type: string
-                        example: 'yes'
-                      url:
-                        type: string
-                        example: aliquip laboris
-                  slug:
-                    type: string
-                    example: ut proident ea sit
-                  suspended:
-                    type: string
-                    example: not_suspended
-                  suspenders:
-                    type: array
-                    items:
-                      type: string
-                      example: parent_service
-                    example:
-                      - parent_service
-                      - unknown
-                  type:
-                    type: string
-                    example: static_site
-                  updatedAt:
-                    type: string
-                    example: '1983-02-10T05:26:21.960Z'
-              examples:
-                OK:
-                  value:
-                    autoDeploy: 'yes'
-                    branch: nostrud Duis laboris nisi
-                    createdAt: '1942-04-20T08:53:35.077Z'
-                    id: in deserunt laboris dolore
-                    name: amet ex Excepteur
-                    notifyOnFail: notify
-                    ownerId: est dolore eiusmod do
-                    repo: https://github.com/render-examples/flask-hello-world
-                    serviceDetails:
-                      buildCommand: aliquip in ea aliqua elit
-                      parentServer:
-                        id: aute consectetur ad consequat
-                        name: ut sed sint ipsum Duis
-                      publishPath: 'incididunt in pariatur '
-                      pullRequestPreviewsEnabled: 'yes'
-                      url: aliquip laboris
-                    slug: ut proident ea sit
-                    suspended: not_suspended
-                    suspenders:
-                      - parent_service
-                      - unknown
-                    type: static_site
-                    updatedAt: '1983-02-10T05:26:21.960Z'
+                $ref: '#/components/schemas/Service'
         '400':
           description: The request could not be understood by the server.
           content:
@@ -2156,42 +1787,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    cursor:
-                      type: string
-                      example: magna aliquip cillum in
-                    envVar:
-                      type: object
-                      properties:
-                        key:
-                          type: string
-                          example: eu mollit reprehenderit nulla
-                        value:
-                          type: string
-                          example: ad
-                example:
-                  - cursor: magna aliquip cillum in
-                    envVar:
-                      key: eu mollit reprehenderit nulla
-                      value: ad
-                  - cursor: mollit do nulla non
-                    envVar:
-                      key: fugiat non ut tempor
-                      value: vol
-              examples:
-                OK:
-                  value:
-                    - cursor: magna aliquip cillum in
-                      envVar:
-                        key: eu mollit reprehenderit nulla
-                        value: ad
-                    - cursor: mollit do nulla non
-                      envVar:
-                        key: fugiat non ut tempor
-                        value: vol
+                $ref: '#/components/schemas/GetEnvVarsResponse'
         '400':
           description: The request could not be understood by the server.
           content:
@@ -3503,89 +3099,7 @@ paths:
               schema:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    cursor:
-                      type: string
-                      example: dolor Duis labore enim aute
-                    deploy:
-                      type: object
-                      properties:
-                        commit:
-                          type: object
-                          properties:
-                            createdAt:
-                              type: string
-                              example: '1978-04-16T20:55:25.900Z'
-                            id:
-                              type: string
-                              example: nostrud laborum
-                            message:
-                              type: string
-                              example: dolore fugiat adipisicing Lorem commodo
-                        createdAt:
-                          type: string
-                          example: '1950-03-29T08:07:14.828Z'
-                        finishedAt:
-                          type: string
-                          example: '1943-06-10T00:28:23.857Z'
-                        id:
-                          type: string
-                          example: enim Lorem amet
-                        status:
-                          type: string
-                          example: update_in_progress
-                        updatedAt:
-                          type: string
-                          example: '1962-10-21T13:09:29.570Z'
-                example:
-                  - cursor: dolor Duis labore enim aute
-                    deploy:
-                      commit:
-                        createdAt: '1978-04-16T20:55:25.900Z'
-                        id: nostrud laborum
-                        message: dolore fugiat adipisicing Lorem commodo
-                      createdAt: '1950-03-29T08:07:14.828Z'
-                      finishedAt: '1943-06-10T00:28:23.857Z'
-                      id: enim Lorem amet
-                      status: update_in_progress
-                      updatedAt: '1962-10-21T13:09:29.570Z'
-                  - cursor: nostrud Ut Lorem non
-                    deploy:
-                      commit:
-                        createdAt: '1944-07-09T04:42:00.125Z'
-                        id: pariatur
-                        message: ad consectetur aliquip
-                      createdAt: '1972-09-20T16:16:12.721Z'
-                      finishedAt: '1972-06-29T05:52:13.073Z'
-                      id: do non velit
-                      status: canceled
-                      updatedAt: '1981-03-05T12:42:20.181Z'
-              examples:
-                OK:
-                  value:
-                    - cursor: dolor Duis labore enim aute
-                      deploy:
-                        commit:
-                          createdAt: '1978-04-16T20:55:25.900Z'
-                          id: nostrud laborum
-                          message: dolore fugiat adipisicing Lorem commodo
-                        createdAt: '1950-03-29T08:07:14.828Z'
-                        finishedAt: '1943-06-10T00:28:23.857Z'
-                        id: enim Lorem amet
-                        status: update_in_progress
-                        updatedAt: '1962-10-21T13:09:29.570Z'
-                    - cursor: nostrud Ut Lorem non
-                      deploy:
-                        commit:
-                          createdAt: '1944-07-09T04:42:00.125Z'
-                          id: pariatur
-                          message: ad consectetur aliquip
-                        createdAt: '1972-09-20T16:16:12.721Z'
-                        finishedAt: '1972-06-29T05:52:13.073Z'
-                        id: do non velit
-                        status: canceled
-                        updatedAt: '1981-03-05T12:42:20.181Z'
+                  $ref: '#/components/schemas/DeployCursor'
         '401':
           description: Authorization information is missing or invalid.
           content:
@@ -6048,6 +5562,198 @@ paths:
           type: string
           example: Lorem amet sin
         description: (Required) The ID of the job
+components:
+  schemas:
+    ServiceCursor:
+      type: object
+      properties:
+        cursor:
+          type: string
+        service:
+          $ref: '#/components/schemas/Service'
+      required:
+        - cursor
+        - service
+    Service:
+      type: object
+      properties:
+        autoDeploy:
+          type: string
+          example: 'no'
+        branch:
+          type: string
+          example: proident eu amet
+        createdAt:
+          type: string
+          example: '2019-10-01T21:05:43.378Z'
+        id:
+          type: string
+          example: irure occaecat aute reprehenderit
+        name:
+          type: string
+          example: qui
+        notifyOnFail:
+          type: string
+          example: ignore
+        ownerId:
+          type: string
+          example: ut laboris
+        repo:
+          type: string
+          example: https://github.com/render-examples/flask-hello-world
+        serviceDetails:
+          $ref: '#/components/schemas/ServiceDetails'
+        slug:
+          type: string
+          example: nulla dolore
+        suspended:
+          type: string
+          example: suspended
+        suspenders:
+          type: array
+          items:
+            type: string
+            example: unknown
+          example:
+            - unknown
+            - billing
+        type:
+          type: string
+          example: web_service
+        updatedAt:
+          type: string
+          example: '2001-04-20T02:58:48.244Z'
+      required:
+        - autoDeploy
+        - branch
+        - createdAt
+        - id
+        - name
+        - notifyOnFail
+        - ownerId
+        - repo
+        - serviceDetails
+        - slug
+        - suspended
+        - suspenders
+        - type
+        - updatedAt
+    ServiceDetails:
+      type: object
+      properties:
+        buildCommand:
+          type: string
+          example: irure
+        parentServer:
+          type: object
+          properties:
+            id:
+              type: string
+              example: nulla Duis et
+            name:
+              type: string
+              example: incididunt eiusmod
+        publishPath:
+          type: string
+          example: irure consectetur ex
+        pullRequestPreviewsEnabled:
+          type: string
+          example: 'no'
+        url:
+          type: string
+          example: ut irure
+      required:
+        - buildCommand
+        - parentServer
+        - publishPath
+        - pullRequestPreviewsEnabled
+        - url
+    EnvVar:
+      type: object
+      properties:
+        key:
+          type: string
+          example: irure
+        value:
+          type: string
+          example: irure
+      required:
+        - key
+        - value
+    EnvVarCursor:
+      type: object
+      properties:
+        cursor:
+          type: string
+        envVar:
+          $ref: '#/components/schemas/EnvVar'
+      required:
+        - cursor
+        - envVar
+    GetEnvVarsResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/EnvVarCursor'
+    DeployCursor:
+      type: object
+      properties:
+        cursor:
+          type: string
+        deploy:
+          $ref: '#/components/schemas/Deploy'
+      required:
+        - cursor
+        - deploy
+    Deploy:
+      type: object
+      properties:
+        commit:
+          $ref: '#/components/schemas/Commit'
+        createdAt:
+          type: string
+          example: '1950-03-29T08:07:14.828Z'
+        finishedAt:
+          type: string
+          example: '1943-06-10T00:28:23.857Z'
+        id:
+          type: string
+          example: enim Lorem amet
+        status:
+          type: string
+          example: update_in_progress
+        updatedAt:
+          type: string
+          example: '1962-10-21T13:09:29.570Z'
+      required:
+        - commit
+        - createdAt
+        - finishedAt
+        - id
+        - status
+        - updatedAt
+    Commit:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          example: '1978-04-16T20:55:25.900Z'
+        id:
+          type: string
+          example: nostrud laborum
+        message:
+          type: string
+          example: dolore fugiat adipisicing Lorem commodo
+      required:
+        - createdAt
+        - id
+        - message
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Bearer
+security:
+  - ApiKeyAuth: []
 tags:
   - name: Owners
     description: >-
