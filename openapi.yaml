@@ -51,54 +51,7 @@ paths:
               schema:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    cursor:
-                      type: string
-                      example: incididunt labore occaecat eiusmod dolore
-                    owner:
-                      type: object
-                      properties:
-                        email:
-                          type: string
-                          example: quis
-                        id:
-                          type: string
-                          example: tempor labore voluptate velit dolore
-                        name:
-                          type: string
-                          example: amet enim qui adipisicing
-                        type:
-                          type: string
-                          example: user
-                example:
-                  - cursor: incididunt labore occaecat eiusmod dolore
-                    owner:
-                      email: quis
-                      id: tempor labore voluptate velit dolore
-                      name: amet enim qui adipisicing
-                      type: user
-                  - cursor: consectetur ut
-                    owner:
-                      email: occa
-                      id: anim ea aute
-                      name: enim nostrud
-                      type: team
-              examples:
-                OK:
-                  value:
-                    - cursor: incididunt labore occaecat eiusmod dolore
-                      owner:
-                        email: quis
-                        id: tempor labore voluptate velit dolore
-                        name: amet enim qui adipisicing
-                        type: user
-                    - cursor: consectetur ut
-                      owner:
-                        email: occa
-                        id: anim ea aute
-                        name: enim nostrud
-                        type: team
+                  $ref: '#/components/schemas/OwnerCursor'
         '401':
           description: Authorization information is missing or invalid.
           content:
@@ -2858,6 +2811,7 @@ paths:
                     example: created
                   updatedAt:
                     type: string
+                    format: date-time
                     example: '1980-10-29T06:36:55.491Z'
               examples:
                 OK:
@@ -5507,6 +5461,46 @@ paths:
           type: string
           example: Lorem amet sin
         description: (Required) The ID of the job
+  /env-groups:
+    get:
+      tags:
+        - Env Groups
+      summary: List env groups
+      description: >-
+        [https://api-docs.render.com/reference/list-env-groups](https://api-docs.render.com/reference/list-env-groups)
+      operationId: listEnvGroups
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EnvGroupCursor'
+  /env-groups/{envGroupId}:
+    get:
+      tags:
+        - Env Groups
+      summary: Retrieve env group
+      description: >-
+        [https://api-docs.render.com/reference/get-env-group](https://api-docs.render.com/reference/get-env-group)
+      operationId: retrieveEnvGroup
+      parameters:
+        - name: envGroupId
+          in: path
+          required: true
+          schema:
+            type: string
+            example: Lorem amet sin
+          description: (Required) The ID of the env group
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnvGroup'
 components:
   schemas:
     ServiceCursor:
@@ -5653,9 +5647,11 @@ components:
           $ref: '#/components/schemas/Commit'
         createdAt:
           type: string
+          format: date-time
           example: '1950-03-29T08:07:14.828Z'
         finishedAt:
           type: string
+          format: date-time
           example: '1943-06-10T00:28:23.857Z'
         id:
           type: string
@@ -5665,6 +5661,7 @@ components:
           example: update_in_progress
         updatedAt:
           type: string
+          format: date-time
           example: '1962-10-21T13:09:29.570Z'
       required:
         - commit
@@ -5689,6 +5686,16 @@ components:
         - createdAt
         - id
         - message
+    EnvGroupCursor:
+      type: object
+      properties:
+        cursor:
+          type: string
+        envGroup:
+          $ref: '#/components/schemas/EnvGroup'
+      required:
+        - cursor
+        - envGroup
     EnvGroup:
       type: object
       properties:
@@ -5698,17 +5705,74 @@ components:
           type: string
         ownerId:
           type: string
-        updatedAt:
-          type: string
-          format: date-time
         envVars:
           type: array
           items:
               $ref: '#/components/schemas/EnvVar'
+        serviceLinks:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceLink'
+        secretFiles:
+          type: array
+          items:
+              $ref: '#/components/schemas/SecretFile'
+      required:
+        - id
+        - name
+        - ownerId
+        - envVars
+        - serviceLinks
+        - secretFiles
+    ServiceLink:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+    SecretFile:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
       required:
           - id
           - name
-          - serviceId
+    OwnerCursor:
+      type: object
+      properties:
+        cursor:
+          type: string
+        owner:
+          $ref: '#/components/schemas/Owner'
+      required:
+        - cursor
+        - owner
+    Owner:
+      type: object
+      properties:
+        email:
+          type: string
+          example: quis
+        id:
+          type: string
+          example: tempor labore voluptate velit dolore
+        name:
+          type: string
+          example: amet enim qui adipisicing
+        type:
+          type: string
+          example: user
+      required:
+        - email
+        - id
+        - name
+        - type
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
