@@ -5581,6 +5581,7 @@ components:
           type: string
           example: irure
         parentServer:
+          nullable: true
           type: object
           properties:
             id:
@@ -5651,6 +5652,7 @@ components:
           example: '1950-03-29T08:07:14.828Z'
         finishedAt:
           type: string
+          nullable: true
           format: date-time
           example: '1943-06-10T00:28:23.857Z'
         id:
